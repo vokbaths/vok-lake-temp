@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="is">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="refresh" content="900">
+<title>Vatnshiti – Vök Baths</title>
+<style>
+  :root { color-scheme: light dark; }
+  html, body {
+    margin: 0; padding: 0; height: 100%;
+    background: transparent;            /* overlay cleanly on LoopSign */
+  }
+  body {
+    font-family: "Segoe UI", "Helvetica Neue", Arial, system-ui, sans-serif;
+    color: #ffffff;
+    -webkit-font-smoothing: antialiased;
+    text-shadow: 0 2px 12px rgba(0,0,0,0.55);
+    display: flex; align-items: center; justify-content: center;
+    min-height: 100vh;
+  }
+  .board {
+    text-align: center;
+    padding: 3vmin 5vmin;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .row { margin: 1.2vmin 0; }
+  .label {
+    font-size: clamp(18px, 3.4vmin, 46px);
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    opacity: 0.92;
+  }
+  .label .en { opacity: 0.7; font-weight: 400; }
+  .value {
+    font-weight: 800;
+    line-height: 1.0;
+    font-variant-numeric: tabular-nums;
+  }
+  .lake .value { font-size: clamp(80px, 24vmin, 360px); }
+  .air  .value { font-size: clamp(46px, 12vmin, 180px); }
+  .unit { font-weight: 600; opacity: 0.85; }
+  .air  { margin-top: 3vmin; opacity: 0.95; }
+  .stamp {
+    margin-top: 4vmin;
+    font-size: clamp(13px, 1.9vmin, 26px);
+    opacity: 0.62;
+    font-weight: 400;
+  }
+  .stale-note {
+    display: none;
+    margin-top: 0.6vmin;
+    font-size: clamp(12px, 1.6vmin, 22px);
+    opacity: 0.55;
+  }
+</style>
+</head>
+<body>
+  <div class="board">
+    <div class="row lake">
+      <div class="label">Vatnshiti í Urriðavatni <span class="en">/ Lake temperature</span></div>
+      <div class="value">13,8<span class="unit"> &deg;C</span></div>
+    </div>
+    <div class="row air">
+      <div class="label">Lofthiti <span class="en">/ Air</span></div>
+      <div class="value">8,1<span class="unit"> &deg;C</span></div>
+    </div>
+    <div class="stamp">Mælt / Measured: 20.08.2026 18:42</div>
+    <div class="stale-note">Síðasta staðfesta mæling / last confirmed reading</div>
+  </div>
+</body>
+</html>
