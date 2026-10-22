@@ -1,7 +1,7 @@
 {
-  "air_c": 2.6,
-  "lake_c": 6.3,
-  "measured_at": "2026-10-22T06:35:11Z",
-  "published_at": "2026-10-22T07:00:01Z",
+  "air_c": 2.1,
+  "lake_c": 6.5,
+  "measured_at": "2026-10-22T07:50:44Z",
+  "published_at": "2026-10-22T08:00:01Z",
   "stale": false
 }
