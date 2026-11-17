@@ -1,0 +1,44 @@
+name: Update HEF air temperature
+
+on:
+  schedule:
+    - cron: "35 * * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: air-sign
+  cancel-in-progress: false
+
+jobs:
+  air:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the Pages repo
+        uses: actions/checkout@v4
+
+      - name: Render sign.html with the HEF air reading
+        run: python3 tools/render_sign.py
+
+      - name: Commit and push if anything changed
+        run: |
+          git config user.name  "vok-lake-bridge"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add sign.html air.json
+          if git diff --cached --quiet; then
+            echo "no change to publish"
+            exit 0
+          fi
+          git commit -m "air: update HEF Tjarnarbraut reading"
+          for attempt in 1 2 3; do
+            if git pull --rebase --autostash && git push; then
+              echo "published"
+              exit 0
+            fi
+            echo "push attempt $attempt failed; retrying"
+            sleep 5
+          done
+          echo "could not push after retries"
+          exit 1
